@@ -44,7 +44,7 @@ Kafka allows management of the offsets with which we can configure from what poi
 ### Scalability of ESP Server Pods with Kafka using In-Memory Database for State and Data Persistence
 
 #### Description
-The high level architecture in Figure 2 overcomes the limitations of the architecture presented in Figure 1. The architecture in Figure 2 integrates with low latency, high throughput in-memory databases such as Aerospike, Singlestore, Redis, etc. for state and data persistence. For operations like joins, aggregations over large retention periods, in-memory databases are used to maintain the state which is shared among all the ESP server pods. We have [plugins for Aerospike/Singlestore/Redis](https://gitlab.sas.com/IOT/projects/esp-retention-and-state-persistence/-/tree/master/) which is used from the procedural window in the ESP XML project. 
+The high level architecture in Figure 2 overcomes the limitations of the architecture presented in Figure 1. The architecture in Figure 2 integrates with low latency, high throughput in-memory databases such as Singlestore, and Redis, for state and data persistence. For operations like joins, aggregations over large retention periods, in-memory databases are used to maintain the state which is shared among all the ESP server pods. We have two [SAS ESP StateDB Windows](https://go.documentation.sas.com/doc/en/espcdc/v_029/espcreatewindows/n01c9h6p6pmlcmn11w46am1xgnum.htm) in the ESP XML project to read/write to/from the in-memory databases. 
 
 All the ESP server pods can access the in-memory database concurrently. 
 

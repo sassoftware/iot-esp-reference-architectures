@@ -4,7 +4,7 @@
 * [Deployment Flavors](multi_node_esp_kubernetes_operator_framework.md#deployment-flavors)<br>
   * [ESP projects Using ESP Server Pod Memory](multi_node_esp_kubernetes_operator_framework.md#esp-projects-using-esp-server-pod-memory)<br>
   * [Auto Scaling of ESP Server Pods](multi_node_esp_kubernetes_operator_framework.md#auto-scaling-of-esp-server-pods)<br>
-  * [Stateless ESP Projects Using In-memory DB for Persistent State](multi_node_esp_kubernetes_operator_framework.md#stateless-esp-projects-using-in-memory-db-for-persistent-state)<br>
+  * [Stateless ESP Projects Using In-memory DB for Persistent State and Data](multi_node_esp_kubernetes_operator_framework.md#stateless-esp-projects-using-in-memory-db-for-persistent-state-and-data)<br>
   * [Multiple Cascading Projects Using Message Buses](multi_node_esp_kubernetes_operator_framework.md#multiple-cascading-projects-using-message-buses)<br>
   * [Multiple Cascading Projects Using ESP Routers](multi_node_esp_kubernetes_operator_framework.md#multiple-cascading-projects-using-esp-routers)<br>
 
@@ -44,7 +44,7 @@ One example of this is using [Amazon Elastic Block Store (EBS)](https://aws.amaz
 
 ESP Kubernetes Deployment Package can be downloaded from the SAS repository using [SAS Mirror Manager](https://go.documentation.sas.com/doc/en/espcdc/v_008/dplyedge0phy0lax/p13675fx02jyy7n1gs0t647n3vto.htm), SAS order number, and the License file in the SAS order. 
 
-Deploying [ESP Kubernetes Operator Framework](https://github.com/sassoftware/esp-kubernetes) in a cloud platform additionally leverages cloud-native services such as elasticity, flexibility on choice of computing resources,  high availability with multi-zone deployment and replication, and distributed services. 
+Deploying [ESP Kubernetes Operator Framework](https://github.com/sassoftware/esp-kubernetes) in a cloud platform additionally leverages cloud-native services such as elasticity, flexibility on choice of computing resources,  high availability with multi-zone deployment and replication, and distributed services. You can find all the required scripts for deploying the standalone ESP (lightweight) on the cloud platforms such as Azure, GCP, AWS and on-premises.
 
 ## Deployment Flavors
 
@@ -101,30 +101,27 @@ For example, when we use Kafka Message Bus, we can leverage the partitions of th
 #### Discussion
 This is a highly recommended architecture for achieving auto-scaling for stateless and stateful (using both internal and external memory) ESP XML projects. 
 
-### Stateless ESP Projects Using In-memory DB for Persistent State
+### Stateless ESP Projects Using In-memory DB for Persistent State and Data
 
 <figure align="center">
   <img src="images/K8s_stateless_using_DB.png">
-  <figcaption><i>Figure 4: High-Level Architecture for Stateless ESP Projects Using DB for Persistent State</i></figcaption>
+  <figcaption><i>Figure 4: High-Level Architecture for Stateless ESP Projects Using DB for Persistent State and Data</i></figcaption>
 </figure>
 
 #### Description
-Figure 4 illustrates how ESP server pods connect to the low latency, high throughput in-memory database using a [SAS plugin](https://gitlab.sas.com/IOT/projects/esp-retention-and-state-persistence) configured in procedural window of the ESP XML project. Operations like aggregation over long retention periods can benefit from in-memory database for data and state persistence. Processed events are persisted in the database. In the event of a crash, the state continues to persist in the in-memory database which is also shared among all the other ESP server pods accessing the database. Additionally, when a new ESP server pod replaces the crashes pod, it fetches the latest state from the DB and resumes processing. If there are some duplicates, their processing can be skipped by using the DB to know if they have been processed earlier or not. 
-
-The GitLab project on [ESP Kubernetes with Aerospike in Azure environment](https://gitlab.sas.com/IOT/reference-architectures/esp-kubernetes/esp-kubernetes-with-aerospike-in-azure-environment/-/tree/master) provides a use-case with demo to learn how to use Aerospike Database for data and state persistence.
+Figure 4 illustrates how ESP server pods connect to the low latency, high throughput in-memory database using a [SAS ESP StateDB Windows](https://go.documentation.sas.com/doc/en/espcdc/v_029/espcreatewindows/n01c9h6p6pmlcmn11w46am1xgnum.htm) of the ESP XML project. Operations like aggregation over long retention periods can benefit from in-memory database for data and state persistence. Processed events are persisted in the database. In the event of a crash, the state continues to persist in the in-memory database which is also shared among all the other ESP server pods accessing the database. Additionally, when a new ESP server pod replaces the crashes pod, it fetches the latest state from the DB and resumes processing. If there are some duplicates, their processing can be skipped by using the database to know if they have been processed earlier or not. 
 
 Learn from the [Video on SAS ESP State Management Using In-Memory Databases](http://sas-social.brightcovegallery.com/sharing?videoId=6255425305001)
 
 #### Characteristics
 This architecture has all the characteristics of above mentioned architectures: Additionally:
 
-- All ESP servers pods can connect to the in-memory DB via the plugin which is configured in the Procedural Window.
-- Plugin allows reading/writing to the in-memory database.
-- This provides fast recovery in case of failure.
-- No time-consuming state buiding exercise as the state is always persists (at every event).
+- All ESP servers pods can connect to the in-memory databases using the StateDB Reader and Writer Windows.
+- StateDB Reader Window allows reading the data from the in-memory database while StateDB Writer Window allows writing to the database. 
+- The persisted state and data aids in fast recovery from the failure. No time-consuming state buiding exercise as the state is always persists (at every event).
 
 #### Limitations
-- Currently, we have plugin for Aerospike DB, SingleStore DB and Redis Cache (Work in Progress).
+- Currently, we we only support SingleStore and Redis.
 - There is some additional latency due to communication over the network with the in-memory data store.
 
 ### Multiple Cascading Projects Using Message Buses 
