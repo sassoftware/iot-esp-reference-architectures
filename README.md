@@ -8,13 +8,13 @@ This project covers various reference architectures for SAS Event Stream Process
 * [3. Benefits of Deploying ESP in Kubernetes](#3-benefits-of-deploying-esp-in-kubernetes)
 * [4. Why You Should Migrate to ESP in Kubernetes](#4-why-you-should-migrate-to-esp-in-kubernetes)
 * [5. Points to Remember when migrating to ESP in Kubernetes](#5-points-to-remember-when-migrating-to-esp-in-kubernetes)
-* [6. Steps to Determine the Recommended Reference Architecture](#6-steps-to-determine-the-recommended-reference-architecture)
+* [6. Steps to Determine the Recommended ESP Reference Architecture](#6-steps-to-determine-the-recommended-esp-reference-architecture)
 * [7. Determine the Usecase Requirements](#7-determine-the-usecase-requirements)
   * [Understanding the ESP Architecture Design Requirements](#understanding-the-esp-architecture-design-requirements)
   * [Definitions of Non-Functional Requirements](#definitions-of-non-functional-requirements)
   * [Real-time Streaming Architecture Design Guide Questionaire](#real-time-streaming-architecture-design-guide-questionaire)
-* [8. Decision-Tree to Determine the Reference Architecture Based on the Requirements](#8-decision-tree-to-determine-the-reference-architecture-based-on-the-requirements)
-* [9. Reference Architectures](#9-reference-architectures)
+* [8. Decision-Tree to Determine the Reference ESP Architecture Based on the Requirements](#8-decision-tree-to-determine-the-reference-esp-architecture-based-on-the-requirements)
+* [9. ESP Reference Architectures](#9-esp-reference-architectures)
 * [10. Additional Resources](#10-additional-resources)
 
 ## 1. Overview
@@ -140,7 +140,7 @@ The external files or libraries cannot be accessed directly as we cannot provide
 - Another addition is the [ESP Lua connector](https://go.documentation.sas.com/doc/en/espcdc/v_030/espca/p0ofbx04mv7n85n1mds3bck22qq0.htm) which uses Lua programs to perform parsing of unstructured data (such as JSON, XML), to read data from URLs and use Lua code to inject events (alternative to the URL connector), and to replace the ESP file/socket connector (remove dependency on external files). 
 *NOTE*: Lua is embedded into the ESP server image, so no external Lua interpreter is required to run programs.
 
-## 6. Steps to Determine the Recommended Reference Architecture
+## 6. Steps to Determine the Recommended ESP Reference Architecture
 In this project repository, we will share different reference architectures of ESP and how one can evaluate which one out of these is the best fit for your customer/partner use-case. Figure 3 below provides the steps that one must follow to determine the right architecture for their business problem. 
 
 **NOTE:** In this project we do not provide any guidelines on the ESP project modeling. 
@@ -180,9 +180,9 @@ In this GitLab project, we will focus on the non-functional and streaming input/
 The [ESP reference architectures use the standard definitions](definitions.md) from Cloud Computing (Distributed Systems). 
 
 ### Real-time Streaming Architecture Design Guide Questionaire
-During designing or architecting a solution, we must ask questions! A lot of questions! The [Streaming Architecture Design Guide Questionaire](06_Architecture_Guide_Questions/Arch_Guide_Questions.md) provides a comprehensive list of questions one must ask to architect a complete solution based on the provided business requirements.
+During designing or architecting a solution, we must ask questions! A lot of questions! The [Streaming Architecture Design Guide Questionaire](05_Architecture_Guide_Questions/Arch_Guide_Questions.md) provides a comprehensive list of questions one must ask to architect a complete solution based on the provided business requirements.
 
-## 8. Decision-Tree to Determine the Reference Architecture Based on the Requirements
+## 8. Decision-Tree to Determine the Reference ESP Architecture Based on the Requirements
 
 Figure 5 presents the Design-Tree/Flowchart which is built using the possible business requirements a customer/partner would have. The flowchart helps in determining the right ESP reference architecture that fulfills the business needs. It is also possible to have a mix of many architectures if many paths in the flowchart are realized.
 It is extremely necessary to have a complete list of requirements to obtain the most suitable architecture.
@@ -193,7 +193,11 @@ It is extremely necessary to have a complete list of requirements to obtain the 
 </figure>
 
 
-## 9. Reference Architectures
+## 9. ESP Reference Architectures
+Here are the different recommended ESP reference architecture for ESP Edge Server deployment, for deploying ESP in Kubernetes in Cloud or on-prem, and for deploying ESP with traditional HA and Failover. We discuss the characteristics, benefits and limitations of each architecture along with the information on when and why to use them. 
+
+**NOTE**: All the architectures can be used when deploying [Standalone ESP (lightweight)](https://github.com/sassoftware/esp-kubernetes) or with [Viya 4](https://github.com/sassoftware/viya4-deployment). 
+
 * [01. ESP Edge Server Deployment](01_ESP_Edge_Server_Deployment/ESP_Edge_Server.md)
 * [02. Multi-Node, ESP Operator Kubernetes Framework](02_Multi_Node_ESP_Kubernetes/multi_node_esp_kubernetes_operator_framework.md)
 * [03. Multi-Node, ESP with Kubernetes using Kafka](03_Multi_Node_ESP_Kube_with_Kafka/multi_node_esp_kubernetes_using_kafka.md)
@@ -209,10 +213,12 @@ It is extremely necessary to have a complete list of requirements to obtain the 
 
 
 ## 10. Additional Resources
-* [Auto-scaling ESP server pods using Kafka and persist state/data using Aerospike Database in Azure](https://gitlab.sas.com/IOT/reference-architectures/esp-kubernetes/esp-kubernetes-with-aerospike-in-azure-environment)
-* [SAS ESP State and Data Management with Singlestore Database](https://gitlab.sas.com/IOT/reference-architectures/esp-kubernetes/singlestore-database-with-esp-in-kubernetes)
-* [In-memory Databases Plugin](https://gitlab.sas.com/IOT/projects/esp-retention-and-state-persistence)
-* [Customize ESP Server Docker Image with Aerospike Plugin](https://gitlab.sas.com/IOT/reference-architectures/esp-kubernetes/customize-esp-server-docker-image-with-aerospike-plugin)
-* [ESP High Availability using Kafka without Kubernetes](https://gitlab.sas.com/IOT/reference-architectures/esp-high-availability-using-kafka)
-* [Create and deploy an ESP HA system using Kafka and Viya 4](https://gitlab.sas.com/IOT/reference-architectures/esp-high-availability-using-kafka-and-viya-4)
+* [Documentation of SAS Event Stream Processing](https://go.documentation.sas.com/doc/en/espcdc/v_030/espwlcm/home.htm)
+* [Deployment scripts for Standalone ESP (lightweight)](https://github.com/sassoftware/esp-kubernetes)
+* [Kubernetes Monitoring Stack for SAS Event Stream Processing on Kubernetes](https://github.com/sassoftware/iot-kubernetes-monitoring-esp)
+* [Deploying Viya 4](https://github.com/sassoftware/viya4-deployment)
+* [SAS® Viya® Monitoring for Kubernetes](https://github.com/sassoftware/viya4-monitoring-kubernetes)
+* [GitHub SAS Software for other SAS repositories](https://github.com/sassoftware)
+* [SAS Communities for demos, customer stories, products know-how, enablement contents and other supports](https://communities.sas.com/)
+
 
