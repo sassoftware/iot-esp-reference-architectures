@@ -1,4 +1,5 @@
 # Streaming Architecture Design Guide Questionnaire
+
 ## Table of Contents
 * [Overview](#overview)
     - [Description](#description)
@@ -8,8 +9,6 @@
 * [Storage Considerations](#storage-considerations)
 * [Displaying and Capturing Results](#displaying-and-capturing-results)
 * [Platform](#platform)
-    
-
 
 ## Overview 
 <figure align="center">
