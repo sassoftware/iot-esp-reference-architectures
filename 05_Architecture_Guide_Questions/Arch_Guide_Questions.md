@@ -1,4 +1,4 @@
-# Streaming Architecutre Design Guide Questionaire
+# Streaming Architecture Design Guide Questionnaire
 ## Table of Contents
 * [Overview](#overview)
     - [Description](#description)
@@ -13,8 +13,8 @@
 
 ## Overview 
 <figure align="center">
-  <img src="images/streaming_design.png ">
-  <figcaption><i>Streaming  System Design Considerations</i></figcaption>
+  <img src="05_Architecture_Guide_Questions/images/Streaming_design_considerations.jpg">
+  <figcaption><i>Streaming System Design Considerations</i></figcaption>
 </figure>
 
 ### Description
@@ -53,9 +53,11 @@ Last but not least we need to understand the platform which will be used to host
 
 - Where does the data originate?​
 - How many data sources are there?​
-- From message broker/bus?​
+- From message broker/bus?​ 
+    - If using Kafka, how many topics are there and how many partitions per topic?
+    - Can we add more partitions if necessary?
 - Directly from data source?​
-- What are the incoming data rates?​
+- What are the incoming data rates?​ What is the expected cumulative number of events per second?
 - Are they steady or will there be significant fluctuation?​
 - Can the incoming data stream be processed in parallel?​
     - How are the events distributed?
@@ -82,6 +84,7 @@ Last but not least we need to understand the platform which will be used to host
     - Short term ​
     - In memory​
 - What are the retention periods?
+- How big is the reference data?
 
 ## Displaying and Capturing Results
 
@@ -95,7 +98,8 @@ Last but not least we need to understand the platform which will be used to host
 
 - Where is the processing power needed?​
     - Edge, Fog, Cloud?​
-- How much processing power (compute resources) is needed?​
+- How much processing power (compute resources) is needed at the Edge IoT Devices, Edge Gateways, and Cloud?​
+- How many IoT devices/sensors are there?
 - Hosting:​
     - On-prem​ises
     - Public/Private Cloud ​
