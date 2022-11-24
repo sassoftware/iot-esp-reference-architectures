@@ -60,10 +60,11 @@ There are many reasons apart from the benefits ESP in Kubernetes provides.
 
 The new ESP architecture leverages all the features that K8s offers which makes the whole deployment more reliable, fault-tolerant, and scalable. 
 
-<figure align="center">
-  <img src="images/whyswitch2.jpg">
-  <figcaption><i>Figure 2: Why migrate to ESP in Kubernetes</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/whyswitch2.jpg"/>
+    <br>
+    <em>Figure 2: Why migrate to ESP in Kubernetes</em>
+</p>
 
 ## 5. Points to Remember When Migrating to ESP in Kubernetes
 Here is the list of points that we should consider when migrating from ESP 6 or older versions to the latest version ESP 2022.x. 
@@ -146,11 +147,11 @@ In this project repository, we will share different reference architectures of E
 
 **NOTE:** In this project we do not provide any guidelines on the ESP project modeling. 
 
-<figure align="center">
-  <img src="images/Steps.png">
-  <figcaption><i>Figure 3: Steps to Determine the Reference Architecture</i></figcaption>
-</figure>
-
+<p align="center">
+ <img src="images/Steps.png"/>
+    <br>
+    <em>Figure 3: Steps to Determine the Reference Architecture</em>
+</p>
 
 ## 7. Determine the Usecase Requirements
 To determine the right architecture, it is important to understand the customers' long-term business objectives. The below sections explain <br>
@@ -172,10 +173,11 @@ We will also look into **Streaming Input/Output** which means how from where and
 
 In this GitLab project, we will focus on the non-functional and streaming input/output design requirements to determine the right infrastructure and select the right architecture. 
 
-<figure align="center">
-  <img src="images/Functional_and_Non_functional_Diagram.png">
-  <figcaption><i>Figure 4: ESP Architecture Design Requirements</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/Functional_and_Non_functional_Diagram.png"/>
+    <br>
+    <em>Figure 4: ESP Architecture Design Requirements</em>
+</p>
 
 ### Definitions of Non-Functional Requirements
 The [ESP reference architectures use the standard definitions](definitions.md) from Cloud Computing (Distributed Systems). 
@@ -188,11 +190,11 @@ During designing or architecting a solution, we must ask questions! A lot of que
 Figure 5 presents the Design-Tree/Flowchart which is built using the possible business requirements a customer/partner would have. The flowchart helps in determining the right ESP reference architecture that fulfills the business needs. It is also possible to have a mix of many architectures if many paths in the flowchart are realized.
 It is extremely necessary to have a complete list of requirements to obtain the most suitable architecture.
 
-<figure align="center">
-  <img src="images/flowchart_4.png">
-  <figcaption><i>Figure 5: Design Tree to Determine the Reference Architecture</i></figcaption>
-</figure>
-
+<p align="center">
+ <img src="images/flowchart_4.png"/>
+    <br>
+    <em>Figure 5: Design Tree to Determine the Reference Architecture</em>
+</p>
 
 ## 9. ESP Reference Architectures
 Here are the different recommended ESP reference architecture for ESP Edge Server deployment, for deploying ESP in Kubernetes in Cloud or on-prem, and for deploying ESP with traditional HA and Failover. We discuss the characteristics, benefits and limitations of each architecture along with the information on when and why to use them. 
