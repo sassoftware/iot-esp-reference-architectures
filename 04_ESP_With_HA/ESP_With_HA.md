@@ -16,10 +16,11 @@ SAS Event Stream Processing uses message buses to provide 1+N failover. A messag
 
 ### Deployment without Kubernetes
 
-<figure align="center">
-  <img src="images/HAHighLevel.png">
-  <figcaption><i>Figure 1: HA architecture without Kubernetes</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/HAHighLevel.png"/>
+    <br>
+    <em>Figure 1: HA architecture without Kubernetes</em>
+</p>
 
 #### Description
 Figure 1 demonstrates the HA architecture with 1+N failover for a non-Kubernetes deployment. This architecture can be deployed on-premises and on private/public Cloud platforms. 
@@ -52,10 +53,12 @@ A large amount of resources needs to be configured to deploy the setup of 1+N fa
 
 
 ### Deployment with Kubernetes
-<figure align="center">
-  <img src="images/HAwithK8s.png">
-  <figcaption><i>Figure 2: HA architecture with Kubernetes</i></figcaption>
-</figure>
+
+<p align="center">
+ <img src="images/HAwithK8s.png"/>
+    <br>
+    <em>Figure 2: HA architecture with Kubernetes</em>
+</p>
 
 #### Description
 Figure 2 shows the HA architecture with Kubernetes. It is the same as that of Figure 1 except, it is now deployed in a Kubernetes cluster. There can be multiple communication methods between projects of achieving this. Let's look at some of the common properties across the methods.
