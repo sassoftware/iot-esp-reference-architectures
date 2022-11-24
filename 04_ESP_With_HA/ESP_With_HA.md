@@ -43,7 +43,7 @@ Figure 1 demonstrates the HA architecture with 1+N failover for a non-Kubernetes
 - A manual restart is required for failed ESP servers and HA adapters.
 
 #### Discussion
-A large amount of resources needs to be configured to deploy the setup of 1+N failover. This architecture can be very expensive if many ESP servers are run in parallel with 1+N failover turned on. A full example with samples can be found on GitHub under [ESP High Availability using Kafka](https://gitlab.sas.com/IOT/reference-architectures/esp-high-availability-using-kafka-and-viya-4). 
+A large amount of resources needs to be configured to deploy the setup of 1+N failover. This architecture can be very expensive if many ESP servers are run in parallel with 1+N failover turned on. A full example with samples can be found on GitHub under [ESP High Availability using Kafka](https://github.com/sassoftware/iot-esp-ha-using-kafka-and-viya). 
 
 **NOTE:** This architecture should only be used when Kubernetes is not available. 
 
@@ -76,7 +76,7 @@ Figure 2 shows the HA architecture with Kubernetes. It is the same as that of Fi
 It is a very bulky deployment and resource-intensive. One must be very careful when choosing this architecture. This should be used only if it is necessary to have 1+N failover. 
 
 ### Stateless Models with DB for Persistent State
-The purpose of this 1+N HA architecture is to keep the ESP state within its memory and allowing failover. If stateless models using a database for the persisting states can be designed, then this setup loses interest and must not be considered. We will then recommend using the [Multi Node ESP Kubernetes architecture](https://gitlab.sas.com/IOT/reference-architectures/esp-reference-architectures/-/blob/master/02_Multi_Node_ESP_Kubernetes/multi_node_esp_kubernetes_operator_framework.md) design.
+The purpose of this 1+N HA architecture is to keep the ESP state within its memory and allowing failover. If stateless models using a database for the persisting states can be designed, then this setup loses interest and must not be considered. We will then recommend using the [Multi Node ESP Kubernetes architecture](https://github.com/sassoftware/iot-esp-reference-architectures/blob/main/02_Multi_Node_ESP_Kubernetes/multi_node_esp_kubernetes_operator_framework.md) design.
 
 ### Multiple Cascading Projects
-Due to the architecture complexity that would be required, we don't recommend designing cascading projects with this failover architecture. If cascading projects are required, we recommend using suitable [Multi Node ESP Kubernetes architectures](https://gitlab.sas.com/IOT/reference-architectures/esp-reference-architectures/-/blob/master/02_Multi_Node_ESP_Kubernetes/multi_node_esp_kubernetes_operator_framework.md). 
+Due to the architecture complexity that would be required, we don't recommend designing cascading projects with this failover architecture. If cascading projects are required, we recommend using suitable [Multi Node ESP Kubernetes architectures](https://github.com/sassoftware/iot-esp-reference-architectures/blob/main/02_Multi_Node_ESP_Kubernetes/multi_node_esp_kubernetes_operator_framework.md). 
