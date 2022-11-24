@@ -12,7 +12,7 @@
 
 ## Overview 
 <figure align="center">
-  <img src="05_Architecture_Guide_Questions/images/Streaming_design_considerations.jpg">
+  <img src="https://github.com/sassoftware/iot-esp-reference-architectures/blob/3e15c82ebca767fb95e794af60e07056ab978468/05_Architecture_Guide_Questions/images/Streaming_design_considerations.jpg">
   <figcaption><i>Streaming System Design Considerations</i></figcaption>
 </figure>
 
