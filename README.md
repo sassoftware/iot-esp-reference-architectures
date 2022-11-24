@@ -44,10 +44,11 @@ Below are the benefits of deploying ESP in the Kubernetes cluster. ESP leverage 
 
 We have encountered several business use cases, where scalability, high availability, failover, and auto-recovery were primary requirements. And these can only be achieved by having ESP running in K8s. 
 
-<figure align="center">
-  <img src="images/benefitsofESPK8s2.jpg">
-  <figcaption><i>Figure 1: Benefits of ESP in Kubernetes</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/benefitsofESPK8s2.jpg"/>
+    <br>
+    <em>Figure 1: Benefits of ESP in Kubernetes</em>
+</p>
 
 ## 4. Why you should migrate to ESP in Kubernetes
 There are many reasons apart from the benefits ESP in Kubernetes provides. 
