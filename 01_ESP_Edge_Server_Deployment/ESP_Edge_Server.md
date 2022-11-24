@@ -25,10 +25,12 @@ ESP edge server docker image is packaged with limited connectors and adapters to
 ## Deployment Flavors
 
 ### Standard Deployment
-<figure align="center">
-  <img src="images/espedgeserver_highlevel_architecture.png">
-  <figcaption><i>Figure 1: ESP Edge Server Standard Deployment</i></figcaption>
-</figure>
+
+<p align="center">
+ <img src="images/espedgeserver_highlevel_architecture.png"/>
+    <br>
+    <em>Figure 1: ESP Edge Server Standard Deployments</em>
+</p>
 
 Figure 1 presents the ESP Edge server deployment on a single virtual machine (VM) in a cloud/on-premises or at the IoT device. This is the simplest deployment strategy with one ESP Edge server and the ESP web clients, all running in their containers. The only requirement is to have docker running in the VM.
 
@@ -52,10 +54,11 @@ It is not recommended to connect to the CAS server using ESP CAS connector from 
 
 ### Stateless Models with DB for Persistent State
 
-<figure align="center">
-  <img src="images/espedgeserver_db_persistent_state.png">
-  <figcaption><i>Figure 2: ESP edge server with DB for persistent state</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/espedgeserver_db_persistent_state.png"/>
+    <br>
+    <em>Figure 2: ESP edge server with DB for persistent state</em>
+</p>
 
 #### Description
 Figure 2 illustrates the architecture of an ESP edge server with an in-memory database for state persistence. SAS provides two windows, StateDB Reader to read from and StateDB Writer to write to the low latency and high throughput in-memory database to persist state and data for join and aggregation operations. 
@@ -87,10 +90,12 @@ The major drawback of having cascading projects is that if one sub-project stops
 There can be various ways by which sub-projects can communicate with each other. We discuss them next.
 
 #### Multiple Cascading Projects Using Message Buses
-<figure align="center">
-  <img src="images/espedgeserver_message_bus.png">
-  <figcaption><i>Figure 3: ESP edge server with cascading projects using message buses</i></figcaption>
-</figure>
+
+<p align="center">
+ <img src="images/espedgeserver_message_bus.png"/>
+    <br>
+    <em>Figure 3: ESP edge server with cascading projects using message buses</em>
+</p>
 
 ##### Characteristics
 - This can be the same message bus bringing in the data to the first sub-project or a different one. 
@@ -105,10 +110,12 @@ There can be various ways by which sub-projects can communicate with each other.
 - Availability of the message bus becomes critical for the projects to run. Customers/Partners must consider the high availability and resiliency configurations for the message bus. This would have added cost for additional resources.
 
 #### Multiple Cascading Projects Using ESP Router
-<figure align="center">
-  <img src="images/espedgeserver_router.png">
-  <figcaption><i>Figure 4: ESP edge server with cascading projects using ESP router</i></figcaption>
-</figure>
+
+<p align="center">
+ <img src="images/espedgeserver_router.png"/>
+    <br>
+    <em>Figure 4: ESP edge server with cascading projects using ESP router</em>
+</p>
 
 ##### Description 
 In Figure 4, we present the high-level architecture of multiple cascading projects connected via the [ESP router](https://go.documentation.sas.com/doc/en/espcdc/v_029/espxmllayer/n0hygnviv2kt6mn1vhnkgtsolxt7.htm). In the diagram, we have all the ESP projects and ESP router running in the same ESP edge server. ESP router enables disintegrating larger ESP projects into multiple and connects them seamlessly to perform the end-to-end stream processing.
@@ -124,10 +131,12 @@ In Figure 4, we present the high-level architecture of multiple cascading projec
 - If one of the projects stops/fails/crashes, then the restart procedure must be followed due to the dependencies. 
 
 #### Multiple Cascading Projects Using ESP Project Publish Connectors
-<figure align="center">
-  <img src="images/espedgeserver_project_connector.png">
-  <figcaption><i>Figure 5: ESP edge server with cascading projects using ESP project publish connectors</i></figcaption>
-</figure>
+
+<p align="center">
+ <img src="images/espedgeserver_project_connector.png"/>
+    <br>
+    <em>Figure 5: ESP edge server with cascading projects using ESP project publish connectors</em>
+</p>
 
 ##### Description
 Another solution to stream events from one project to another is via [ESP Project Publish Connector](https://go.documentation.sas.com/doc/en/espcdc/v_029/espca/p0nd0g1i4np1h1n15zmar9fhln8u.htm) as shown in Figure 5. ESP project connector can connect to the project running on the same ESP edge server or a different one. 
