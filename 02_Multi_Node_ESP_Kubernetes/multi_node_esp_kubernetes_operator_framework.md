@@ -18,10 +18,11 @@
 
 **NOTE:** With the new paradigm shift, each ESP server pod runs one and only one ESP XML Project. All the web applications(SAS Event Stream Processing Studio, SAS Event Stream Manager (ESM) and SAS Streamviewer) run in Kubernetes pods. 
 
-<figure align="center">
-  <img src="images/K8s_Overview_HL_Arch.png">
-  <figcaption><i>Figure 1: Overview of High-Level Architecture of ESP Kubernetes Operator Framework</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/K8s_Overview_HL_Arch.png"/>
+    <br>
+    <em>Figure 1: Overview of High-Level Architecture of ESP Kubernetes Operator Framework</em>
+</p>
 
 SAS ESP package includes the components demonstrated in Figure 1 along with others as shown:
 
@@ -50,10 +51,11 @@ Deploying [ESP Kubernetes Operator Framework](https://github.com/sassoftware/esp
 
 ### ESP projects Using ESP Server Pod Memory
 
-<figure align="center">
-  <img src="images/K8s_Overview_HL_Arch.png">
-  <figcaption><i>Figure 2: High-Level Architecture using ESP Server Pod Memory</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/K8s_Overview_HL_Arch.png"/>
+    <br>
+    <em>Figure 2: High-Level Architecture using ESP Server Pod Memory</em>
+</p>
 
 #### Description
 Figure 2 illustrates the most simplest deployment where each ESP project runs in an ESP server pod with its own defined resources for CPU and memory. The ESP project can be both stateless and stateful.
@@ -76,10 +78,11 @@ This is a recommended architecture for any stateless ESP projects as there is no
 
 ### Auto Scaling of ESP Server Pods
 
-<figure align="center">
-  <img src="images/K8s_scalability.png">
-  <figcaption><i>Figure 3: High-Level Architecture for Auto-Scalability of ESP Server Pods</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/K8s_scalability.png"/>
+    <br>
+    <em>Figure 3: High-Level Architecture for Auto-Scalability of ESP Server Pods</em>
+</p>
 
 #### Description
 Figure 3 below demonstrates the auto-scaling of ESP server pods as the incoming rate of events fluctuates. We leverage the Horizontal Pod Autoscaler (HPA) of Kubernetes to allow ESP server pods to auto-scale when the CPU utilization reaches the defined target consumption percentage. For example, if the *target CPU utilization* is defined as *50%*, then when the consumption goes above 50%, a new ESP server pod is started which runs the same ESP XML project.  
@@ -103,10 +106,11 @@ This is a highly recommended architecture for achieving auto-scaling for statele
 
 ### Stateless ESP Projects Using In-memory DB for Persistent State and Data
 
-<figure align="center">
-  <img src="images/K8s_stateless_using_DB.png">
-  <figcaption><i>Figure 4: High-Level Architecture for Stateless ESP Projects Using DB for Persistent State and Data</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/K8s_stateless_using_DB.png"/>
+    <br>
+    <em>Figure 4: High-Level Architecture for Stateless ESP Projects Using DB for Persistent State and Data</em>
+</p>
 
 #### Description
 Figure 4 illustrates how ESP server pods connect to the low latency, high throughput in-memory database using a [SAS ESP StateDB Windows](https://go.documentation.sas.com/doc/en/espcdc/v_029/espcreatewindows/n01c9h6p6pmlcmn11w46am1xgnum.htm) of the ESP XML project. Operations like aggregation over long retention periods can benefit from in-memory database for data and state persistence. Processed events are persisted in the database. In the event of a crash, the state continues to persist in the in-memory database which is also shared among all the other ESP server pods accessing the database. Additionally, when a new ESP server pod replaces the crashes pod, it fetches the latest state from the DB and resumes processing. If there are some duplicates, their processing can be skipped by using the database to know if they have been processed earlier or not. 
@@ -126,10 +130,11 @@ This architecture has all the characteristics of above mentioned architectures: 
 
 ### Multiple Cascading Projects Using Message Buses 
 
-<figure align="center">
-  <img src="images/K8s_cascading_projects_using_buses.png">
-  <figcaption><i>Figure 5: High-Level Architecture for Multiple Cascading Projects Using Message Buses in K8s</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/K8s_cascading_projects_using_buses.png"/>
+    <br>
+    <em>Figure 5: High-Level Architecture for Multiple Cascading Projects Using Message Buses in K8s</em>
+</p>
 
 #### Description
 Figure 5 shows how we can have cascading ESP server pods (where each of them runs a different ESP XML project) using the message buses such as Kafka, RabbitMQ, Amazon Kinesis, Azure Event Hubs, Azure IoT Hubs, etc. Here the ESP server pod writes its output to the message bus which is the input for the next ESP server pod. There can be multiple ESP server pods reading and writing to the intermediate message buses. 
