@@ -11,11 +11,6 @@
 * [Platform](#platform)
 
 ## Overview 
-<figure align="center">
-  <img src="https://github.com/sassoftware/iot-esp-reference-architectures/blob/3e15c82ebca767fb95e794af60e07056ab978468/05_Architecture_Guide_Questions/images/Streaming_design_considerations.jpg">
-  <figcaption align="center"><i>Streaming System Design Considerations</i></figcaption>
-</figure>
-
 <p align="center">
  <img src="https://github.com/sassoftware/iot-esp-reference-architectures/blob/3e15c82ebca767fb95e794af60e07056ab978468/05_Architecture_Guide_Questions/images/Streaming_design_considerations.jpg"/>
     <br>
