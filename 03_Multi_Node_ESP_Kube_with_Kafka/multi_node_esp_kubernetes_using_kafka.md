@@ -22,10 +22,11 @@ During the events of ESP server pod crash or failure, Kafka undergoes rebalancin
 
 Kafka allows management of the offsets with which we can configure from what point in the topic or partition, the messages must be replayed to prevent any data loss. During the replay, there are chances that some events might get reprocessed. But, ESP XML project can be designed to handle/reject the duplicate events or they can be simply ignored if the use case allows. 
 
-<figure align="center">
-  <img src="images/ESP_Scaling_with_Kafka.png">
-  <figcaption><i>Figure 1: Scalability of ESP Server Pods using Kafka</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/ESP_Scaling_with_Kafka.png"/>
+    <br>
+    <em>Figure 1: Scalability of ESP Server Pods using Kafka</em>
+</p>
 
 #### Characteristics
 - Kafka allows auto-scaling ESP server pods using the consumer group access the events/messages from the configured Kafka topic.
@@ -48,10 +49,11 @@ The high level architecture in Figure 2 overcomes the limitations of the archite
 
 All the ESP server pods can access the in-memory database concurrently. 
 
-<figure align="center">
-  <img src="images/ESP_Scaling_with_Kafka_using_in_memory_DB.png">
-  <figcaption><i>Figure 2: Scalability of ESP Server Pods with Kafka using In-Memory Database for State and Data Persistence</i></figcaption>
-</figure>
+<p align="center">
+ <img src="images/ESP_Scaling_with_Kafka_using_in_memory_DB.png"/>
+    <br>
+    <em>Figure 2: Scalability of ESP Server Pods with Kafka using In-Memory Database for State and Data Persistence</em>
+</p>
 
 #### Characteristics
 - All the characteristics of the architecture in Figure 1 are applicable. 
